@@ -8,6 +8,7 @@ export class BootScene extends Scene {
   preload() {
     this.textures.addBase64(PROGRESS_BAR, progressBarImage);
     this.textures.addBase64(PROGRESS_BG, progressBgImage);
+    this.load.svg('shard', 'singles/0.svg');
   }
 
   init() {
@@ -16,10 +17,15 @@ export class BootScene extends Scene {
 
   create() {
     // TODO: Configure scaling
-
+    this.matter.world.setBounds(0, 0, 800, 600, 32, true, true, false, true);
     this.scene.add(SCENES.LOAD, LoadScene, false);
     this.scene.add(SCENES.MAIN, MainScene, false);
-
+    for (var i = 0; i < 64; i++) {
+      var ball = this.matter.add.image(Phaser.Math.Between(100, 700), Phaser.Math.Between(-600, 0), 'shard');
+      ball.setCircle();
+      ball.setFriction(0.005);
+      ball.setBounce(1);
+    }
     this.scene.start(SCENES.LOAD);
   }
 

@@ -12,6 +12,12 @@ const gameConfig = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
+    physics: {
+        default: 'matter',
+        matter: {
+            enableSleeping: true,
+        }
+    },
     render: {
         antialias: false,
         pixelArt: true,
@@ -25,7 +31,7 @@ const PhaserGame = () => {
 
     return (
         <div className="container">
-            <div style={{height: "100vh"}} ref={parentEl} />
+            <div style={{ height: "100vh" }} ref={parentEl} />
         </div>
     )
 }

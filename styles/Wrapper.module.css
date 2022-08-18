@@ -1,0 +1,25 @@
+.landing_container {
+  width: 100%;
+  background-color: #181521;
+  background-attachment: fixed;
+}
+
+.landing_background_glow {
+  background-image: url("/background_glow.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.landing_background_shards {
+  background-image: url("/background_shards.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: 10;
+}
+.svg {
+  display: none;
+}
