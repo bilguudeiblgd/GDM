@@ -6,7 +6,7 @@ import styles from '../styles/game.module.css';
 // })
 // const PhaserGamePage = () => <PhaserGameNoSSR />
 
-const game = () => {
+const Game = () => {
     const [width, setWidth] = useState();
     const [height, setHeight] = useState();
     const canvasEl = useRef();
@@ -28,4 +28,4 @@ const game = () => {
     )
 }
 
-export default game
+export default Game
