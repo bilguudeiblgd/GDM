@@ -27,7 +27,7 @@ const Wrapper = ({ children }) => {
             newBalls.push([x, y, num]);
         }
         setBalls([...newBalls]);
-        setBack(false);
+        setBack(true);
         return () => {
             window.removeEventListener("scroll", onScroll, { passive: true });
         }

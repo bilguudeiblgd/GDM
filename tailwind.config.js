@@ -17,7 +17,7 @@ module.exports = {
     },
     fontFamily: {
       'sans': ['Raleway', ...defaultTheme.fontFamily.sans],
-      'pixel': ['Silkscreen']
+      'title': ['Bebas Neue']
     }
   },
   plugins: [],

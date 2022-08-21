@@ -1,5 +1,20 @@
 .box {
-    max-width: 250px;
-    height: 400px;
+    width: 280px;
     border-width: 1px;
+}
+.outlined_text_purple {
+    color: transparent;
+    -webkit-text-stroke: 1px #741FBB;
+}
+.outlined_text_blue {
+    color: transparent;
+    -webkit-text-stroke: 1px #167CE2;
+}
+.outlined_text_green {
+    color: transparent;
+    -webkit-text-stroke: 1px #06D881;
+}
+.outlined_text_white {
+    color: transparent;
+    -webkit-text-stroke: 1px #ffffff;
 }

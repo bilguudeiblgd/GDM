@@ -32,12 +32,12 @@ const Spectate = () => {
       </div>
       <div className={"w-full h-screen flex flex-col justify-center items-center"}>
         <div className={"flex flex-row"}>
-          <div className={"flex flex-row items-center "}>
+          <div className={"hidden md:flex flex-row items-center justify-center "}>
             <LeftIcon />
           </div>
 
           <Image className={"mx-auto"} src="/GDM_Website_Logo.png" width={`${500 / 1.2}px`} height={`${152 / 1.2}px`} />
-          <div className={"flex flex-row items-center"}>
+          <div className={"hidden md:flex flex-row items-center justify-center"}>
             <RightIcon />
           </div>
 
@@ -45,7 +45,7 @@ const Spectate = () => {
         <h2 className={"text-3xl text-white font-thin mt-4"}>{'<'} Game Dev Mongolia {'>'}</h2>
       </div>
       <div>
-        <h2 className={"text-6xl font-pixel font-normal text-white text-center"}><span className={`text-transparent ${styles.stroke_text}`}>ABOUT</span>ABOUT GDM<span className={`text-transparent ${styles.stroke_text}`}>GDM</span></h2>
+        <h2 className={"text-6xl font-title font-normal text-white text-center"}><span className={`text-transparent ${styles.stroke_text}`}>ABOUT</span>ABOUT GDM<span className={`text-transparent ${styles.stroke_text}`}>GDM</span></h2>
         <article>
           <div className={"w-96 mx-auto mt-16"}>
             <Typewriter options={{
@@ -68,11 +68,10 @@ const Spectate = () => {
           </div>
         </article>
       </div>
-      <div className={"mt-20"}>
-        <h2 className={"text-6xl font-pixel font-normal text-white text-center"}><span className={`text-transparent ${styles.stroke_text}`}></span>ROAD MAP<span className={`text-transparent ${styles.stroke_text}`}></span></h2>
-        <div className={"container mx-auto px-4 mt-10"}>
+      <div className={"mt-32"}>
+        <h2 className={"text-6xl font-title font-normal text-white text-center"}><span className={`text-transparent ${styles.stroke_text}`}></span>ROAD MAP<span className={`text-transparent ${styles.stroke_text}`}></span></h2>
+        <div className={"container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-9 mx-auto px-4 mt-10"}>
           <RoadMapBox />
-
         </div>
       </div>
       <div className={"w-full h-screen"}></div>
