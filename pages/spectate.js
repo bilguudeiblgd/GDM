@@ -1,7 +1,6 @@
-import Image from 'next/image';
+
 import React, { useCallback, useRef, useEffect, useState } from 'react'
-import LeftIcon from '../components/landing/LeftIcon';
-import RightIcon from '../components/landing/RightIcon';
+
 import TitleText from '../components/TitleText';
 import Wrapper from '../components/Wrapper';
 import styles from '../styles/spectate.module.css';
@@ -11,8 +10,10 @@ import 'aos/dist/aos.css';
 
 import gsap from 'gsap';
 import RoadMapBox from '../components/RoadMapBox';
+import SpectateLanding from '../components/SpectateLanding';
 const Spectate = () => {
-  const textRef = useRef();
+  let textRef = useRef();
+
   const onScroll = useCallback(event => {
     const { pageYOffset, scrollY } = window;
   }, []);
@@ -24,6 +25,7 @@ const Spectate = () => {
     return () => {
       window.removeEventListener("scroll", onScroll, { passive: true });
     }
+    
   }, []);
 
   return (
@@ -31,18 +33,7 @@ const Spectate = () => {
       <div id="shard-con">
       </div>
       <div className={"w-full h-screen flex flex-col justify-center items-center"}>
-        <div className={"flex flex-row"}>
-          <div className={"hidden md:flex flex-row items-center justify-center "}>
-            <LeftIcon />
-          </div>
-
-          <Image className={"mx-auto"} src="/GDM_Website_Logo.png" width={`${500 / 1.2}px`} height={`${152 / 1.2}px`} />
-          <div className={"hidden md:flex flex-row items-center justify-center"}>
-            <RightIcon />
-          </div>
-
-        </div>
-        <h2 className={"text-3xl text-white font-thin mt-4"}>{'<'} Game Dev Mongolia {'>'}</h2>
+          <SpectateLanding/>
       </div>
       <div>
         <h2 className={"text-6xl font-title font-normal text-white text-center"}><span className={`text-transparent ${styles.stroke_text}`}>ABOUT</span>ABOUT GDM<span className={`text-transparent ${styles.stroke_text}`}>GDM</span></h2>
