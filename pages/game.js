@@ -9,21 +9,16 @@ import styles from '../styles/game.module.css';
 const Game = () => {
     const [width, setWidth] = useState();
     const [height, setHeight] = useState();
-    const canvasEl = useRef();
+    let gameRef = useRef();
     useEffect(() => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
-        FirstGameLogic(canvasEl.current);
+        gameRef.current.focus();
     }, [])
 
     return (
         <div className={"w-full h-screen bg-[#181521]"}>
-            <div className={styles.landing_background_glow}>
-                <div className={[styles.landing_background_shards]}>
-                    <canvas ref={canvasEl} className={"bg-transparent block mx-0"} id="myCanvas"></canvas>
-
-                </div>
-            </div>
+            <iframe src="game/index.html" ref={gameRef} width={width} height={height} scrolling="no" noresize="noresize" />
         </div>
     )
 }

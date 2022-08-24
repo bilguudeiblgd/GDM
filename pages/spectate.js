@@ -74,6 +74,9 @@ const Spectate = () => {
           <RoadMapBox />
         </div>
       </div>
+      <div className={"mt-32"}>
+          <h2>JOIN OUR DISCORD</h2>
+      </div>
       <div className={"w-full h-screen"}></div>
     </div>
 
