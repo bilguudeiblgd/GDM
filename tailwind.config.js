@@ -12,7 +12,7 @@ module.exports = {
       colors: {
         'prim-green': '#06D881',
         'prim-blue': '#167CE2',
-        'prim-purple': '#741FBB'
+        'prim-purple': '#741FBB',
       },
     },
     fontFamily: {

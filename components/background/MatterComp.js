@@ -20,20 +20,20 @@ function MatterComp(props) {
             scale: 0.001
         }
     }))
-    const onMouseDown = (e) => {
-        console.log("mouse hit", e);
-    }
-    const onMouseMove = (e) => {
-        // console.log(e);
-    }
-    const onMouseUp = (e) => {
-        console.log("mouse up", e);
-    }
+    // const onMouseDown = (e) => {
+    //     console.log("mouse hit", e);
+    // }
+    // const onMouseMove = (e) => {
+    //     // console.log(e);
+    // }
+    // const onMouseUp = (e) => {
+    //     console.log("mouse up", e);
+    // }
     useEffect(() => {
         // mount
-        window.addEventListener("mousedown", onMouseDown);
-        window.addEventListener("mousemove", onMouseMove);
-        window.addEventListener("mouseup", onMouseUp)
+        // window.addEventListener("mousedown", onMouseDown);
+        // window.addEventListener("mousemove", onMouseMove);
+        // window.addEventListener("mouseup", onMouseUp)
         const cw = window.innerWidth
         const ch = window.innerHeight
         // 
@@ -100,9 +100,9 @@ function MatterComp(props) {
             render.canvas = null
             render.context = null
             render.textures = {}
-            window.removeEventListener("mousedown", onMouseDown);
-            window.removeEventListener("mousemove", onMouseMove);
-            window.addEventListener("mouseup", onMouseUp)
+            // window.removeEventListener("mousedown", onMouseDown);
+            // window.removeEventListener("mousemove", onMouseMove);
+            // window.addEventListener("mouseup", onMouseUp)
 
         }
     }, []);

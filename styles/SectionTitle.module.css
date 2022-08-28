@@ -1,0 +1,23 @@
+.title_background_text {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    z-index: -10;
+    width: -moz-fit-content;
+    width: fit-content;
+    background: rgb(116, 31, 187);
+    background: linear-gradient(90deg, rgba(116, 31, 187, 1) 0%, rgba(22, 124, 226, 1) 50%, rgba(6, 216, 129, 1) 100%);
+    background-repeat: repeat;
+    letter-spacing: 6px;
+    white-space: nowrap;
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.title_text {
+    letter-spacing: 6px;
+}
