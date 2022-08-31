@@ -23,7 +23,7 @@ const AboutSection = () => {
                     autoStart: true,
                     delay: 20,
                 }} onInit={(typewriter) => {
-                    typewriter.typeString(`<span class="text-white text-xl">Game dev mongolia is a community that</span>`).start();
+                    typewriter.typeString(`<span class="text-center text-white text-2xl">GAME DEV MONGOLIA is a community that</span>`).start();
                 }} />
                 <div className={"relative overflow-hidden border1 mx-10 w-3/4 my-4 border h-20 flex items-center justify-center border-prim-green  "}>
                     <div className={"bg-prim-green box-bg0 w-full h-full absolute top-0 left-0"}></div>
@@ -54,7 +54,7 @@ const AboutSection = () => {
                     autoStart: true,
                     delay: 20,
                 }} onInit={(typewriter) => {
-                    typewriter.typeString(`<span class="text-white text-xl">for game
+                    typewriter.typeString(`<span class="text-center text-white text-2xl">for game
               developers in mongolia.</span>`).start();
                 }} />
 

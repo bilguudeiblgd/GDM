@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useRouter} from 'next/router';
-
+import styles from "./StartButton.module.css";
 const StartButton = ({ index, text, active, onButtonClick }) => {
     const router = useRouter();
     const [selfActive, setSelfActive] = useState(false);
@@ -22,7 +22,7 @@ const StartButton = ({ index, text, active, onButtonClick }) => {
         }
     }
     return (
-        <button onClick={clickHandler}><h2 className={`text-white font-extralight uppercase mt-4 ${selfActive ? "text-4xl" : " text-3xl"}`}>{'>'} {text} {'<'}</h2></button>
+        <button className={"w-max z-30"} onClick={clickHandler}><h2 className={`text-white ${styles.text} hover:text-4xl z-10 font-extralight uppercase mt-4 ${selfActive ? "text-3xl" : " text-3xl"}`}>{text}</h2></button>
     )
 }
 

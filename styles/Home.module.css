@@ -1,20 +1,7 @@
 .landing_container {
   height: 100vh;
-  width: 100%;
   background-color: #181521;
+  background: transparent;
+  position: relative;
 }
 
-.landing_background_glow {
-  background-image: url("/background_glow.png");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.landing_background_shards {
-  background-image: url("/background_shards.png");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}

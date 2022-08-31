@@ -6,6 +6,7 @@ import SpectateLanding from '../components/SpectateLanding';
 import SectionTitle from '../components/SectionTitle';
 import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
+import Loading from '../components/Loading';
 const Spectate = () => {
   const roadMapRef = useRef();
   const textRef = useRef();
@@ -23,10 +24,8 @@ const Spectate = () => {
   }, []);
 
   return (
-    <div className={"text-red-400 relative z-10"}>
-      <div id="shard-con">
-      </div>
-      <div className={"w-full h-screen flex flex-col justify-center items-center"}>
+    <div className={"relative px-6"}>
+      <div className={" relative h-screen flex flex-col justify-center items-center"}>
         <SpectateLanding />
       </div>
       <div>
@@ -39,11 +38,11 @@ const Spectate = () => {
         <SectionTitle text={"< ROAD MAP >"} />
         <RoadMapBox />
       </div>
-      <div className={"mt-32"}>
+      <div className={"mt-32 pb-32"}>
         <SectionTitle text={"< CONTACTS >"}/>
         <ContactSection/>
       </div>
-      <div className={"w-full h-screen"}></div>
+      
     </div>
 
   )

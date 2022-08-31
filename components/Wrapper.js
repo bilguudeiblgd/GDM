@@ -1,51 +1,38 @@
 import { useEffect, useState, useCallback } from 'react';
 import styles from '../styles/Wrapper.module.css';
 import MatterComp from './background/MatterComp';
-import dynamic from 'next/dynamic';
-import Script from 'next/script';
-// const PhaserGamePage = () => <PhaserGameNoSSR />
+import { useRouter } from 'next/router';
+import Loading from './Loading';
 const Wrapper = ({ children }) => {
-    const [balls, setBalls] = useState([]);
-    const [back, setBack] = useState(false);
-    const onScroll = useCallback(event => {
-        const { pageYOffset, scrollY } = window;
-    }, []);
+    const [play, setPlay] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [interactive, setInteractive] = useState(false);
+    const router = useRouter();
+    const onFinished = () => {
+        setLoading(false);
+    }
     useEffect(() => {
-        window.addEventListener("scroll", onScroll, { passive: true });
+        console.log(router.pathname)
         // remove event on unmount to prevent a memory leak with the cleanup
-
-        let newBalls = balls;
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-        for (let i = 0; i < 10; i++) {
-            let x = Math.random() * (width - 50);
-            let y = Math.random() * (height - 50);
-            let num = Math.floor(Math.random() * 4);
-            // var angle = Math.random() * Math.PI * 2;
-            // let x = Math.cos(angle) * radius;
-            // let y = Math.sin(angle) * radius;
-            newBalls.push([x, y, num]);
-        }
-        setBalls([...newBalls]);
-        setBack(true);
-        return () => {
-            window.removeEventListener("scroll", onScroll, { passive: true });
+        if(router.pathname !== '/game') {
+            setPlay(true);
+        };
+        if(router.pathname === '/') {
+            setInteractive(true);
+        } else {
+            setInteractive(false);
         }
 
-    }, [])
+    }, [router.pathname])
     return <div className={""}>
 
         <div className={styles.landing_container}>
-            
             <div className={styles.landing_background_glow}>
-                <div className="w-full h-screen fixed z-0">
-                    {/* {balls.map(([x, y, num], index) => {
-                        return <Shard key={index} x={x} y={y} num={num} />
-                    })} */}
-                    {back && <MatterComp />}
+                <div className="w-full h-screen fixed z-20">
+                    {play && <MatterComp onFinished={onFinished} />}
 
                 </div>
-                <div >
+                <div className={`${!interactive ? "relative z-30" : "z-10" }`}>
                     {children}
                 </div>
             </div>
@@ -53,11 +40,5 @@ const Wrapper = ({ children }) => {
     </div>
 }
 
-const Shard = ({ x, y, num }) => {
-    console.log(x, y);
-    return <div style={{ position: 'absolute', top: `${y}px`, left: `${x}px` }} className={"w-10 h-10 z-0"}>
-        <img style={{ transform: `translate()` }} src={`/singles/${num}.svg`} />
 
-    </div>
-}
 export default Wrapper;

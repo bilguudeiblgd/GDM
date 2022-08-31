@@ -5,16 +5,11 @@ import Wrapper from './Wrapper';
 const Layout = ({ children }) => {
     const router = useRouter();
     console.log(router.pathname);
-    if(router.pathname == "/spectate") {
-        return <Wrapper>
-            {children}
-        </Wrapper>
-    }
-    return (
-        <div className={styles.background}>
-            {children}
-        </div>
-    )
+
+    return <Wrapper>
+        {children}
+    </Wrapper>
+
 }
 
 export default Layout

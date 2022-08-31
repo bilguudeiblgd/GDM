@@ -22,10 +22,10 @@ const SpectateLanding = () => {
     return (
         <>
             <div  className={"flex flex-row"}>
-                <div ref={leftRef} className={"hidden md:flex flex-row items-center justify-center "}>
+                <div ref={leftRef} className={"z-30 hidden md:flex flex-row items-center justify-center "}>
                     <LeftIcon />
                 </div>
-                <div id={"gdm-logo"} ref={imageRef}>
+                <div id={"gdm-logo"} className={"z-30"} ref={imageRef}>
                     <Image className={"mx-auto"} src="/GDM_Website_Logo.png" width={`${500 / 1.2}px`} height={`${152 / 1.2}px`} />
                 </div>
                 <div ref={rightRef} className={"hidden md:flex flex-row items-center justify-center"}>

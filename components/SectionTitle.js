@@ -15,8 +15,8 @@ const SectionTitle = ({ text }) => {
     return (
         <div className={"flex justify-center"}>
             <div ref={containerRef} className={`relative overflow-hidden box ${styles.box}`}>
-                <h1 className={`${styles.title_text} text-6xl text-white font-title font-bold`}>{text}</h1>
-                <h1 ref={textRef} className={`${styles.title_background_text} text-6xl font-title  font-bold`}>{text}</h1>
+                <h1 className={`whitespace-nowrap ${styles.title_text} text-5xl sm:text-6xl text-white font-title font-bold`}>{text}</h1>
+                <h1 ref={textRef} className={`whitespace-nowrap ${styles.title_background_text} text-5xl sm:text-6xl font-title  font-bold`}>{text}</h1>
             </div>
         </div>
     )
