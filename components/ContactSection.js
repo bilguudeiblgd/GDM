@@ -10,7 +10,7 @@ const ContactSection = () => {
   return (
     <div id="contacts" className={"flex flex-col items-center justify-center mt-20"}>
       <div className={"flex flex-row justify-center items-center"}>
-        <a href={"https://discord.gg/Jbs7GF9x9W"} target="_blank" className={"p-2 sm:p-3 mr-8 border border-white relative"}>
+        <a href={"https://discord.gg/Jbs7GF9x9W"} target="_blank" rel="noreferrer" className={"p-2 sm:p-3 mr-8 border border-white relative"}>
           <div className={"absolute w-1.5 h-1.5 bg-white -left-1 -top-1"}></div>
           <div className={"absolute w-1.5 h-1.5 bg-white -right-1 -top-1"}></div>
           <div className={"absolute w-1.5 h-1.5 bg-white -left-1 -bottom-1"}></div>
