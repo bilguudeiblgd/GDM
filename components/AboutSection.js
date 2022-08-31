@@ -1,18 +1,23 @@
 import React, { useEffect, useRef } from 'react'
 import Typewriter from 'typewriter-effect';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 const AboutSection = () => {
     let containerRef = useRef();
     let q = gsap.utils.selector(containerRef);
     useEffect(() => {
         q('.about-text').forEach((item, index) => {
             const tl = gsap.timeline()
-                .fromTo(q(`.box-bg${index}`), {xPercent: 0, }, {xPercent: 100,  scrollTrigger: {
-                    trigger: q(`.box-bg${index}`),
-                    scrub: 2,
-                    start: 'top 100%',
-                    end: 'top 30%',
-                }})
+                .fromTo(q(`.box-bg${index}`), { xPercent: 0, }, {
+                    xPercent: 100, scrollTrigger: {
+                        trigger: q(`.box-bg${index}`),
+                        scrub: 2,
+                        start: 'top 100%',
+                        end: 'top 30%',
+                    }
+                })
                 .fromTo(item, { y: 50 }, { y: 0 })
         })
     }, []);
