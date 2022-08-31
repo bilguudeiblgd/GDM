@@ -40,7 +40,7 @@ const Spectate = () => {
       </div>
       <div className={"mt-32 pb-32"}>
         <SectionTitle text={"< CONTACTS >"}/>
-        <ContactSection/>
+        <ContactSection />
       </div>
       
     </div>

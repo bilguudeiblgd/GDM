@@ -19,6 +19,8 @@ const StartButton = ({ index, text, active, onButtonClick }) => {
             router.push("/game");
         } else if(index == 1) {
             router.push('/spectate');
+        } else if(index == 2) {
+            router.push('/spectate#contacts')
         }
     }
     return (
