@@ -6,8 +6,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = () => {
     let containerRef = useRef();
-    let q = gsap.utils.selector(containerRef);
+
     useEffect(() => {
+        let q = gsap.utils.selector(containerRef);
         q('.about-text').forEach((item, index) => {
             const tl = gsap.timeline()
                 .fromTo(q(`.box-bg${index}`), { xPercent: 0, }, {
