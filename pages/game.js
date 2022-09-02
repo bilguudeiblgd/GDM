@@ -25,6 +25,7 @@ const Game = () => {
             else {
                 setLandspace(true);
             }
+            
         }
         else {
             if (screen.orientation.type === "landscape-primary") {
@@ -62,7 +63,9 @@ const Game = () => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
         checkOrientation("whatever");
-        screen.orientation.addEventListener('change', checkOrientation)
+        if (typeof screen.orientation !== 'undefined') {
+            screen.orientation.addEventListener('change', checkOrientation)
+        }
         window.addEventListener("resize", resizeHappened, false);
         document.addEventListener("fullscreenerror", fullScreenError)
         document.addEventListener("fullscreenchange", function () {
@@ -73,7 +76,6 @@ const Game = () => {
             gameRef.current.focus()
         }
         return (() => {
-            window.removeEventListener("orientationchange", checkOrientation, false);
             window.removeEventListener("resize", resizeHappened, false);
             document.removeEventListener("fullscreenerror", fullScreenError);
             document.removeEventListener("fullscreenchange", function () {
