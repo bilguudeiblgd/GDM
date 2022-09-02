@@ -17,12 +17,23 @@ const Game = () => {
     let gameRef = useRef();
     let containerRef = useRef();
     const checkOrientation = (e) => {
-        setErrLog(screen.orientation.type);
-        if (screen.orientation.type === "landscape-primary") {
-            setLandspace(true);
-        } else {
-            setLandspace(false);
+        const iOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+        if (iOS) {
+            if (window.innerHeight > window.innerWidth) {
+                setLandspace(false);
+            }
+            else {
+                setLandspace(true);
+            }
         }
+        else {
+            if (screen.orientation.type === "landscape-primary") {
+                setLandspace(true);
+            } else {
+                setLandspace(false);
+            }
+        }
+
         setMobHeight(window.innerWidth);
         setMobWidth(window.innerHeight);
     }
@@ -46,7 +57,7 @@ const Game = () => {
         else if (gameRef.current.msRequestFullScreen)
             gameRef.current.msRequestFullScreen()
     }
-  
+
     useEffect(() => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
@@ -68,7 +79,7 @@ const Game = () => {
             document.removeEventListener("fullscreenchange", function () {
                 setFullscreen(document.fullscreenElement !== null);
             }, false);
-           
+
 
         })
     }, [])
@@ -81,18 +92,18 @@ const Game = () => {
                         <div className={"w-full h-full"}>
                             <iframe src="game/index.html" className={"fixed top-0 left-0 bottom-0 right-0 w-full h-full border-none m-0 p-0 overflow-hidden z-9999"} ref={gameRef} allowFullScreen={true} width={mobWidth} height={mobHeight} scrolling="no" noresize="noresize" />
                         </div>
-                        {
-                            fullscreen ?
-                                <button onClick={exitFullScreen} className={"fixed bottom-2 right-2.5 z-10000"} >
-                                    <p className={"text-white"}>Exit fullscreen</p>
-                                </button>
-                                :
-                                <button onClick={requestFullScreen} className={"fixed bottom-2 right-2.5 z-10000"} >
-                                    <p className={"text-white"}>Fullscreen</p>
-                                </button>
-                        }
-
-
+                        <div>
+                            {
+                                fullscreen ?
+                                    <button onClick={exitFullScreen} className={"fixed bottom-2 right-2.5 z-10000"} >
+                                        <p className={"text-white"}>Exit fullscreen</p>
+                                    </button>
+                                    :
+                                    <button onClick={requestFullScreen} className={"fixed bottom-2 right-2.5 z-10000"} >
+                                        <p className={"text-white"}>Fullscreen</p>
+                                    </button>
+                            }
+                        </div>
                         {
                             !landscape &&
                             <div className={"fixed top-10 w-full z-10000"}>
