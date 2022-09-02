@@ -18,7 +18,6 @@ const Game = () => {
     let containerRef = useRef();
     const checkOrientation = (e) => {
         setErrLog(screen.orientation.type);
-        console.log(screen.orientation);
         if (screen.orientation.type === "landscape-primary") {
             setLandspace(true);
         } else {
@@ -47,14 +46,12 @@ const Game = () => {
         else if (gameRef.current.msRequestFullScreen)
             gameRef.current.msRequestFullScreen()
     }
-    const fullScreenChange = (e) => {
-
-    }
+  
     useEffect(() => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
         checkOrientation("whatever");
-        window.addEventListener("orientationchange", checkOrientation, false);
+        screen.orientation.addEventListener('change', checkOrientation)
         window.addEventListener("resize", resizeHappened, false);
         document.addEventListener("fullscreenerror", fullScreenError)
         document.addEventListener("fullscreenchange", function () {
