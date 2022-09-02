@@ -25,7 +25,7 @@ const Game = () => {
             else {
                 setLandspace(true);
             }
-            
+
         }
         else {
             if (screen.orientation.type === "landscape-primary") {
@@ -41,6 +41,10 @@ const Game = () => {
     const resizeHappened = (e) => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
+        const iOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+        if(iOS) {
+            checkOrientation("whatever");
+        }
     }
     const fullScreenError = (e) => {
         containerRef.current.requestFullscreen();
@@ -92,7 +96,7 @@ const Game = () => {
                 {({ isMobile }) => {
                     if (isMobile) return (<>
                         <div className={"w-full h-full"}>
-                            <iframe src="game/index.html" className={"fixed top-0 left-0 bottom-0 right-0 w-full h-full border-none m-0 p-0 overflow-hidden z-9999"} ref={gameRef} allowFullScreen={true} width={mobWidth} height={mobHeight} scrolling="no" noresize="noresize" />
+                            <iframe src="game/index.html" className={"fixed top-0 left-0 bottom-0 right-0 w-full h-full border-none m-0 p-0 overflow-hidden z-9999"} ref={gameRef} allowFullScreen={true} webkitAllowFullScreen={true} msAllowFullScreen={true} width={mobWidth} height={mobHeight} scrolling="no" noresize="noresize" />
                         </div>
                         <div>
                             {
@@ -120,7 +124,7 @@ const Game = () => {
                         }
                     </>)
                     else {
-                        return <><iframe className={"fixed top-0 left-0 bottom-0 right-0 w-full h-full border-none m-0 p-0 overflow-hidden z-9999"} src="game/index.html" ref={gameRef} allowFullScreen={true} width={width} height={height} scrolling="no" noresize="noresize" />
+                        return <><iframe className={"fixed top-0 left-0 bottom-0 right-0 w-full h-full border-none m-0 p-0 overflow-hidden z-9999"} src="game/index.html" ref={gameRef} allowFullScreen={true} webkitAllowFullScreen={true} msAllowFullScreen={true} width={width} height={height} scrolling="no" noresize="noresize" />
                         </>
                     }
                 }}
