@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react'
 import FirstGameLogic from '../functions/FirstGameLogic';
 import styles from '../styles/game.module.css';
 import dynamic from 'next/dynamic';
-
+import { TbDeviceMobileRotated } from 'react-icons/tb';
+import { IoMdClose } from 'react-icons/io';
 const Device = dynamic(() => import('../components/Device', { ssr: false }));
 
 const Game = () => {
@@ -11,8 +12,10 @@ const Game = () => {
     const [landscape, setLandspace] = useState(false);
     const [mobWidth, setMobWidth] = useState();
     const [mobHeight, setMobHeight] = useState();
+    const [fullscreen, setFullscreen] = useState(false);
     const [errLog, setErrLog] = useState("nothing here");
     let gameRef = useRef();
+    let containerRef = useRef();
     const checkOrientation = (e) => {
         setErrLog(screen.orientation.type);
         console.log(screen.orientation);
@@ -28,33 +31,86 @@ const Game = () => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
     }
+    const fullScreenError = (e) => {
+        containerRef.current.requestFullscreen();
+    }
+    const exitFullScreen = (e) => {
+        if (gameRef.current.exitFullscreen) {
+            gameRef.current.exitFullscreen();
+        }
+    }
+    const requestFullScreen = (e) => {
+        if (gameRef.current.requestFullscreen)
+            gameRef.current.requestFullscreen();
+        else if (gameRef.current.webkitRequestFullscreen)
+            gameRef.current.webkitRequestFullscreen();
+        else if (gameRef.current.msRequestFullScreen)
+            gameRef.current.msRequestFullScreen()
+    }
+    const fullScreenChange = (e) => {
+
+    }
     useEffect(() => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
+        checkOrientation("whatever");
         window.addEventListener("orientationchange", checkOrientation, false);
         window.addEventListener("resize", resizeHappened, false);
+        document.addEventListener("fullscreenerror", fullScreenError)
+        document.addEventListener("fullscreenchange", function () {
+            setFullscreen(document.fullscreenElement !== null);
+        }, false);
+
+        if (gameRef.current) {
+            gameRef.current.focus()
+        }
         return (() => {
             window.removeEventListener("orientationchange", checkOrientation, false);
             window.removeEventListener("resize", resizeHappened, false);
+            document.removeEventListener("fullscreenerror", fullScreenError);
+            document.removeEventListener("fullscreenchange", function () {
+                setFullscreen(document.fullscreenElement !== null);
+            }, false);
+           
+
         })
     }, [])
 
     return (
-        <div className={"w-full h-screen  bg-[#181521]"}>
+        <div ref={containerRef} className={"w-full h-screen  bg-[#181521]"}>
             <Device>
                 {({ isMobile }) => {
-                    if (isMobile) return (<> {
-                        !landscape
-                            ?
-                            <h1 className={"text-white"}>Rotate your phone</h1>
-                            :
-                            <iframe src="game/index.html" ref={gameRef}  allowFullScreen={true} width={mobWidth} height={mobHeight} scrolling="no"  noresize="noresize" />
-                    }
-                        <h2 className={"text-white text-2xl"}>{errLog}</h2>
+                    if (isMobile) return (<>
+                        <div className={"w-full h-full"}>
+                            <iframe src="game/index.html" className={"fixed top-0 left-0 bottom-0 right-0 w-full h-full border-none m-0 p-0 overflow-hidden z-9999"} ref={gameRef} allowFullScreen={true} width={mobWidth} height={mobHeight} scrolling="no" noresize="noresize" />
+                        </div>
+                        {
+                            fullscreen ?
+                                <button onClick={exitFullScreen} className={"fixed bottom-2 right-2.5 z-10000"} >
+                                    <p className={"text-white"}>Exit fullscreen</p>
+                                </button>
+                                :
+                                <button onClick={requestFullScreen} className={"fixed bottom-2 right-2.5 z-10000"} >
+                                    <p className={"text-white"}>Fullscreen</p>
+                                </button>
+                        }
+
+
+                        {
+                            !landscape &&
+                            <div className={"fixed top-10 w-full z-10000"}>
+                                <div className={"w-full flex justify-center flex-col items-center"}>
+                                    <button>
+                                        <p className={"text-white"}>Rotate your phone to get the best experience</p>
+                                    </button>
+                                    <TbDeviceMobileRotated color={"#ffffff"} size={48} />
+                                </div>
+
+                            </div>
+                        }
                     </>)
                     else {
                         return <><iframe className={"fixed top-0 left-0 bottom-0 right-0 w-full h-full border-none m-0 p-0 overflow-hidden z-9999"} src="game/index.html" ref={gameRef} allowFullScreen={true} width={width} height={height} scrolling="no" noresize="noresize" />
-                            <h2 className={"text-white text-2xl"}>{errLog}</h2>
                         </>
                     }
                 }}

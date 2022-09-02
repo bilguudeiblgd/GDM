@@ -31,7 +31,7 @@ export default function Home() {
       </Head>
 
       <div className={styles.landing_container}>
-            <div className={"pt-32 sm:pt-0 container mx-auto px-6 sm:px-8 justify-center align-center flex flex-col"}>
+            <div className={"pt-24 sm:pt-0 container mx-auto px-6 sm:px-8 justify-center align-center flex flex-col"}>
               <div className={"mx-auto z-30 mt-20"}>
                 <Image src="/GDM_Website_Landing_Logo.png" alt="gdm logo" width="440px" height="200px" />
               </div>
