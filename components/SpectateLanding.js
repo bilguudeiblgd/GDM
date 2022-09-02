@@ -9,24 +9,24 @@ const SpectateLanding = () => {
     let imageRef = useRef();
     const el = useRef();
     const im = useRef();
-    const q = gsap.utils.selector(el);
     const imSel = gsap.utils.selector(el);
     useEffect(() => {
-        im.current =  gsap.timeline()
-        .fromTo(imageRef.current, { y: -400, scale: 0.2 }, { y: 0, duration: 2, scale: 1, ease: "circ.out" })
-        .fromTo(q("#logo-text"), {y: 400, color: '#741FBB'}, {y: 0,  color: "white" , duration: 1.5, ease:"bounce.out"})
-        gsap.fromTo(leftRef.current, { x: -300 }, {x: 0, duration: 1,  ease: "circ.out"});
-        gsap.fromTo(rightRef.current, { x: 300 }, { x: 0, duration: 1,  ease: "circ.out" });
-        
+        const q = gsap.utils.selector(el);
+        im.current = gsap.timeline()
+            .fromTo(imageRef.current, { y: -400, scale: 0.2 }, { y: 0, duration: 2, scale: 1, ease: "circ.out" })
+            .fromTo(q("#logo-text"), { y: 400, color: '#741FBB' }, { y: 0, color: "white", duration: 1.5, ease: "bounce.out" })
+        gsap.fromTo(leftRef.current, { x: -300 }, { x: 0, duration: 1, ease: "circ.out" });
+        gsap.fromTo(rightRef.current, { x: 300 }, { x: 0, duration: 1, ease: "circ.out" });
+
     }, [])
     return (
         <>
-            <div  className={"flex flex-row"}>
+            <div className={"flex flex-row"}>
                 <div ref={leftRef} className={"z-30 hidden md:flex flex-row items-center justify-center "}>
                     <LeftIcon />
                 </div>
                 <div id={"gdm-logo"} className={"z-30"} ref={imageRef}>
-                    <Image className={"mx-auto"} src="/GDM_Website_Logo.png" width={`${500 / 1.2}px`} height={`${152 / 1.2}px`} />
+                    <Image className={"mx-auto"} src="/GDM_Website_Logo.png" alt="Game Dev Mongolia's logo" width={`${500 / 1.2}px`} height={`${152 / 1.2}px`} />
                 </div>
                 <div ref={rightRef} className={"hidden md:flex flex-row items-center justify-center"}>
                     <RightIcon />

@@ -53,7 +53,7 @@ const ContactSection = () => {
         </div>
         <div className={"mt-16 flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12"}>
           <div className={"text-center"}>
-            <Image src="/ghosts/purple.png" width={70} height={70} />
+            <Image src="/ghosts/purple.png" alt={"an illustration from a game character in purple"} width={70} height={70} />
             <h3 className={"text-white uppercase font-bold text-2xl"}>Cyberio</h3>
             <h5 className={"text-white font-extralight text-xl"}>President</h5>
 
@@ -62,7 +62,7 @@ const ContactSection = () => {
             </a>
           </div>
           <div className={"text-center"}>
-            <Image src="/ghosts/blue.png" width={70} height={70} />
+            <Image src="/ghosts/blue.png" alt={"an illustration from a game character in blue"}  width={70} height={70} />
             <h3 className={"text-white uppercase font-bold text-2xl"}>Bilguudei</h3>
             <h5 className={"text-white font-extralight text-xl"}>Technical Director</h5>
             <a href="mailto:bel@gamedev.mn">
@@ -70,7 +70,7 @@ const ContactSection = () => {
             </a>
           </div>
           <div className={"text-center"}>
-            <Image src="/ghosts/green.png" width={70} height={70} />
+            <Image src="/ghosts/green.png" alt={"an illustration from a game character in green"}  width={70} height={70} />
             <h3 className={"text-white uppercase font-bold text-2xl"}>Akoreyu</h3>
             <h5 className={"text-white font-extralight text-xl"}>Content Director</h5>
             <a href="mailto:akoreyu@gamedev.mn">

@@ -3,8 +3,8 @@ import gsap from 'gsap';
 
 const Loading = () => {
     const containerRef = useRef();
-    const q = gsap.utils.selector(containerRef);
     useEffect(() => {
+        const q = gsap.utils.selector(containerRef);
         gsap.to(q(".circle1"), {
             y: 0,
             stagger: { each: 0.15, yoyo: true, repeat: -1 },

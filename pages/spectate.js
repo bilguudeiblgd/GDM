@@ -10,18 +10,6 @@ import Loading from '../components/Loading';
 const Spectate = () => {
   const roadMapRef = useRef();
   const textRef = useRef();
-  const onScroll = useCallback(event => {
-    const { pageYOffset, scrollY } = window;
-  }, []);
-  useEffect(() => {
-    //add eventlistener to window
-    window.addEventListener("scroll", onScroll, { passive: true });
-    // remove event on unmount to prevent a memory leak with the cleanup
-    return () => {
-      window.removeEventListener("scroll", onScroll, { passive: true });
-    }
-
-  }, []);
 
   return (
     <div className={"relative px-6"}>
