@@ -23,7 +23,7 @@ const Spectate = () => {
         </article>
       </div>
       <div className={"mt-32"}>
-        <SectionTitle text={"< ROAD MAP >"} />
+        <SectionTitle text={"< WHAT WE DO >"} />
         <RoadMapBox />
       </div>
       <div className={"mt-32 pb-32"}>
