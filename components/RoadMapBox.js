@@ -288,7 +288,7 @@ const InnerBox = ({ bigRef, title, bulktext, color }) => {
 
     return () => ctx.revert(); // cleanup
   }, []);
-  const [revealed, setRevealed] = useState(false);
+  const [revealed, setRevealed] = useState(true);
   const handleTouch =() => {
     setRevealed(!revealed);
   }
