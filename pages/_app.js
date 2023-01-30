@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-import Router from 'next/router';
+import Router, {useRouter} from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
@@ -9,6 +9,12 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 import '../styles/globals.css'
 function MyApp({ Component, pageProps }) {
+  const handleRouteChange = (url) => {
+    window.gtag('config', 'G-SDS6YY9HD1', {
+      page_path: url,
+    });
+  };
+
   return <>
     <Layout>
       <Component {...pageProps} />
